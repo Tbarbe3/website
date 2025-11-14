@@ -1,5 +1,5 @@
-import { ThemeProvider } from '@/contexts/ThemeContext';
-import { LanguageProvider } from '@/contexts/LanguageContext';
+import { ThemeProvider } from '@/hooks/ThemeContext.tsx';
+import { LanguageProvider } from '@/hooks/LanguageContext.tsx';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/sections/Hero';
 import { Experience } from '@/components/sections/Experience';
@@ -17,9 +17,9 @@ const Index = () => {
           <Header />
           <main>
             <Hero />
-            <Experience />
+              {/*<Experience />
             <Projects />
-            <Skills />
+            <Skills />*/}
             <Contact />
           </main>
           <Footer />

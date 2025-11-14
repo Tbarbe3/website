@@ -1,0 +1,125 @@
+export const fr = {
+  nav: {
+    home: 'Accueil',
+    parcours: 'Parcours',
+    experience: 'Expériences',
+    projects: 'Projets',
+    skills: 'Compétences',
+    contact: 'Contact',
+  },
+  hero: {
+    greeting: 'Bienvenue, je suis',
+    title: 'Etudiant en Ingénierie Logicielle',
+    age: 'ans',
+    description: "Curieux, sérieux et motivé, je suis convaincu de pouvoir vous accompagner efficacement dans les missions que vous pourriez me confier seul ou en équipe.",
+    cta: 'Voir mes projets',
+    contact: 'Me contacter',
+  },
+  experience: {
+    title: 'Expériences Professionnelles',
+    subtitle: 'Mon parcours professionnel',
+    items: [
+      {
+        position: 'Développeur Full Stack Senior',
+        company: 'TechCorp',
+        period: '2021 - Présent',
+        description: 'Développement d\'applications web complexes avec React, Node.js et PostgreSQL. Lead technique sur plusieurs projets clients.',
+        achievements: [
+          'Architecture et développement d\'une plateforme SaaS multi-tenant',
+          'Amélioration des performances de 40%',
+          'Mentorat de 3 développeurs juniors',
+        ],
+      },
+      {
+        position: 'Développeur Frontend',
+        company: 'StartupXYZ',
+        period: '2019 - 2021',
+        description: 'Création d\'interfaces utilisateur modernes et responsive avec React et TypeScript.',
+        achievements: [
+          'Refonte complète de l\'interface utilisateur',
+          'Mise en place d\'une bibliothèque de composants réutilisables',
+          'Intégration de tests automatisés',
+        ],
+      },
+      {
+        position: 'Développeur Web Junior',
+        company: 'WebAgency',
+        period: '2017 - 2019',
+        description: 'Développement de sites web et applications pour divers clients.',
+        achievements: [
+          'Développement de plus de 15 projets web',
+          'Maîtrise des bonnes pratiques de développement',
+          'Formation continue sur les nouvelles technologies',
+        ],
+      },
+    ],
+  },
+  projects: {
+    title: 'Projets',
+    subtitle: 'Quelques réalisations dont je suis fier',
+    items: [
+      {
+        title: 'E-commerce Platform',
+        description: 'Plateforme e-commerce complète avec paiement en ligne, gestion des stocks et tableau de bord administrateur.',
+        technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+        link: 'https://example.com',
+      },
+      {
+        title: 'Task Management App',
+        description: 'Application de gestion de tâches collaborative en temps réel avec notifications push.',
+        technologies: ['React', 'Firebase', 'Tailwind CSS'],
+        link: 'https://example.com',
+      },
+      {
+        title: 'Portfolio Generator',
+        description: 'Outil permettant de créer un portfolio professionnel en quelques clics avec des templates personnalisables.',
+        technologies: ['Next.js', 'TypeScript', 'Prisma'],
+        link: 'https://example.com',
+      },
+    ],
+    viewProject: 'Voir le projet',
+  },
+  skills: {
+    title: 'Compétences',
+    subtitle: 'Technologies et outils que je maîtrise',
+    categories: {
+      frontend: 'Frontend',
+      backend: 'Backend',
+      tools: 'Outils',
+      other: 'Autres',
+    },
+    items: {
+      frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js'],
+      backend: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs'],
+      tools: ['Git', 'Docker', 'VS Code', 'Figma', 'Postman'],
+      other: ['Agile/Scrum', 'CI/CD', 'Testing', 'SEO', 'UI/UX'],
+    },
+  },
+  contact: {
+    title: 'Contact',
+    subtitle: 'N\'hésitez pas à me contacter',
+    info: {
+      email: 'Email',
+      phone: 'Téléphone',
+      location: 'Localisation',
+      socials: 'Autres réseaux',
+    },
+    form: {
+      name: 'Nom',
+      email: 'Email',
+      subject: 'Sujet',
+      message: 'Message',
+      send: 'Envoyer',
+      sending: 'Envoi en cours...',
+      success: 'Message envoyé avec succès !',
+      error: 'Une erreur est survenue. Veuillez réessayer.',
+      namePlaceholder: 'Votre nom',
+      emailPlaceholder: 'votre@email.com',
+      subjectPlaceholder: 'Sujet de votre message',
+      messagePlaceholder: 'Votre message...',
+    },
+  },
+  footer: {
+    rights: 'Tous droits réservés',
+  },
+};

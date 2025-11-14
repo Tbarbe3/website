@@ -1,18 +1,31 @@
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/LanguageContext.tsx';
 import { ArrowRight, Mail } from 'lucide-react';
 
 export const Hero = () => {
   const { t } = useLanguage();
 
+    const calculateAge = (birthDateString: string) => {
+        const birthDate = new Date(birthDateString);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    };
+
+    const age = calculateAge('2004-08-03');
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-0">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
           {/* Greeting */}
-          <p className="text-lg text-muted-foreground animate-slide-up">
+          <h3 className="text-lg text-muted-foreground animate-slide-up">
             {t('hero.greeting')}
-          </p>
+          </h3>
 
           {/* Name */}
           <h1 className="text-5xl md:text-7xl font-bold animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -21,7 +34,7 @@ export const Hero = () => {
 
           {/* Title */}
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            {t('hero.title')}
+            {t('hero.title') + " (" + age + " " + t('hero.age') + ")"}
           </h2>
 
           {/* Description */}

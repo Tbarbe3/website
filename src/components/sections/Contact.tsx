@@ -1,12 +1,12 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/LanguageContext.tsx';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from 'lucide-react';
-import { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import {Mail, MapPin, Phone, Github, Linkedin, Instagram} from 'lucide-react';
+import React, { useState } from 'react';
+import { useToast } from "@/hooks/use-toast.ts";
 
 export const Contact = () => {
   const { t } = useLanguage();
@@ -21,18 +21,39 @@ export const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: "fa213c4d-2d88-4a51-8a6f-aa1b67175efc",
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
 
-    toast({
-      title: t('contact.form.success'),
-      duration: 3000,
-    });
-
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+      const result = await response.json();
+      if (response.ok) {
+        toast({
+          title: t('contact.form.success'),
+          duration: 3000,
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        toast({
+          title: result.message || t('contact.form.error'),
+          variant: 'destructive',
+          duration: 5000,
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -45,9 +66,9 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-muted/50">
+    <section id="contact" className="py-20 px-0 bg-muted/50">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('contact.title')}</h2>
           <p className="text-xl text-muted-foreground">{t('contact.subtitle')}</p>
         </div>
@@ -57,16 +78,16 @@ export const Contact = () => {
           <div className="space-y-6">
             <Card className="p-6 hover-lift animate-slide-in-left">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">{t('contact.info.email')}</h3>
                   <a
-                    href="mailto:contact@example.com"
+                    href="mailto:thomas.barbe.3@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    contact@example.com
+                    thomas.barbe.3@gmail.com
                   </a>
                 </div>
               </div>
@@ -74,16 +95,16 @@ export const Contact = () => {
 
             <Card className="p-6 hover-lift animate-slide-in-left" style={{ animationDelay: '0.1s' }}>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent-dark flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
                   <Phone className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">{t('contact.info.phone')}</h3>
                   <a
-                    href="tel:+33123456789"
+                    href="tel:+33637233268"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +33 1 23 45 67 89
+                    +33 6 37 23 32 68
                   </a>
                 </div>
               </div>
@@ -96,28 +117,28 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">{t('contact.info.location')}</h3>
-                  <p className="text-muted-foreground">Paris, France</p>
+                  <p className="text-muted-foreground">Nancy, Meurthe-et-Moselle, France</p>
                 </div>
               </div>
             </Card>
 
             {/* Social Media */}
             <Card className="p-6 animate-slide-in-left" style={{ animationDelay: '0.3s' }}>
-              <h3 className="font-semibold text-lg mb-4">{t('contact.socials.title')}</h3>
+              <h3 className="font-semibold text-lg mb-4">{t('contact.info.socials')}</h3>
               <div className="flex gap-4">
                 <Button size="icon" variant="outline" asChild>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/Tbarbe3" target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button size="icon" variant="outline" asChild>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/thomas-barb%C3%A9-862b89304/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button size="icon" variant="outline" asChild>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <Twitter className="h-5 w-5" />
+                  <a href="https://www.instagram.com/thomas.brb.3/" target="_blank" rel="noopener noreferrer">
+                    <Instagram className="h-5 w-5" />
                   </a>
                 </Button>
               </div>
@@ -126,65 +147,67 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <Card className="p-6 animate-slide-in-right">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Label htmlFor="name">{t('contact.form.name')}</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder={t('contact.form.namePlaceholder')}
-                  required
-                />
-              </div>
+              <h2 className="font-bold text-xl mb-3">{t('hero.contact')}</h2>
 
-              <div>
-                <Label htmlFor="email">{t('contact.form.email')}</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder={t('contact.form.emailPlaceholder')}
-                  required
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                      <Label htmlFor="name">{t('contact.form.name')}</Label>
+                      <Input
+                          id="from_name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder={t('contact.form.namePlaceholder')}
+                          required
+                      />
+                  </div>
 
-              <div>
-                <Label htmlFor="subject">{t('contact.form.subject')}</Label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder={t('contact.form.subjectPlaceholder')}
-                  required
-                />
-              </div>
+                  <div>
+                      <Label htmlFor="email">{t('contact.form.email')}</Label>
+                      <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder={t('contact.form.emailPlaceholder')}
+                          required
+                      />
+                  </div>
 
-              <div>
-                <Label htmlFor="message">{t('contact.form.message')}</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder={t('contact.form.messagePlaceholder')}
-                  rows={5}
-                  required
-                />
-              </div>
+                  <div>
+                      <Label htmlFor="subject">{t('contact.form.subject')}</Label>
+                      <Input
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          placeholder={t('contact.form.subjectPlaceholder')}
+                          required
+                      />
+                  </div>
 
-              <Button
-                type="submit"
-                className="w-full bg-gradient-to-r from-primary to-primary-dark hover:opacity-90"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
-              </Button>
-            </form>
+                  <div>
+                      <Label htmlFor="message">{t('contact.form.message')}</Label>
+                      <Textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          placeholder={t('contact.form.messagePlaceholder')}
+                          rows={5}
+                          required
+                      />
+                  </div>
+
+                  <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-primary to-primary-dark hover:opacity-90"
+                      disabled={isSubmitting}
+                  >
+                      {isSubmitting ? (t('contact.form.sending') || 'Envoi en cours...') : t('contact.form.send')}
+                  </Button>
+              </form>
           </Card>
         </div>
       </div>

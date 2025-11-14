@@ -1,4 +1,4 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/LanguageContext.tsx';
 import { Card } from '@/components/ui/card';
 import { Briefcase, CheckCircle2 } from 'lucide-react';
 

@@ -1,4 +1,4 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/hooks/LanguageContext.tsx';
 import { Heart } from 'lucide-react';
 
 export const Footer = () => {

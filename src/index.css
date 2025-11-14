@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -22,10 +18,10 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 100%;
     --primary-dark: 221 83% 43%;
     
-    /* Warm coral accent */
-    --accent: 14 100% 66%;
+    /* Warm blue accent */
+    --accent: 221 83% 53%;
     --accent-foreground: 0 0% 100%;
-    --accent-dark: 14 90% 56%;
+    --accent-dark: 221 83% 43%;
     
     --secondary: 210 40% 96%;
     --secondary-foreground: 222 47% 11%;
@@ -43,9 +39,9 @@ All colors MUST be HSL.
     --radius: 0.75rem;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(221 83% 43%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(14 100% 66%) 0%, hsl(14 90% 56%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53% / 0.1) 0%, hsl(14 100% 66% / 0.1) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 52%) 0%, hsl(0, 0%, 0%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(221 83% 43%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53% / 0.1) 0%, hsl(221 83% 43% / 0.1) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
@@ -72,9 +68,9 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 100%;
     --primary-dark: 221 83% 43%;
     
-    --accent: 14 100% 66%;
+    --accent: 221 83% 53%; /* Changed from orange to blue */
     --accent-foreground: 0 0% 100%;
-    --accent-dark: 14 90% 56%;
+    --accent-dark: 221 83% 43%; /* Changed from orange to blue */
     
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
@@ -91,20 +87,25 @@ All colors MUST be HSL.
     
     /* Gradients - adjusted for dark mode */
     --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(221 83% 43%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(14 100% 66%) 0%, hsl(14 90% 56%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53% / 0.2) 0%, hsl(14 100% 66% / 0.2) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(221 83% 43%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53% / 0.2) 0%, hsl(221 83% 43% / 0.2) 100%);
     
     /* Shadows - adjusted for dark mode */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4);
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5);
     --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.5);
+
+      .logo-img {
+          filter: invert(1);
+      }
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
   
   body {
@@ -132,6 +133,10 @@ All colors MUST be HSL.
   
   .animate-slide-in-right {
     animation: slide-in-right 0.6s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.5s ease-out;
   }
   
   /* Gradient text */
@@ -197,5 +202,16 @@ All colors MUST be HSL.
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
