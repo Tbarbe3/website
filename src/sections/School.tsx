@@ -1,24 +1,23 @@
 import { useLanguage } from '@/hooks/LanguageContext.tsx';
-import { Card } from '@/components/ui/card';
+import { Card } from '@/components/ui/card.tsx';
 import { Briefcase, CheckCircle2 } from 'lucide-react';
 
-export const Experience = () => {
+export const School = () => {
   const { t } = useLanguage();
 
-  const experiences = Array.isArray(t('experience.items')) 
-    ? t('experience.items') as any[]
+  const schools = Array.isArray(t('school.items')) 
+    ? t('school.items') as any[]
     : [];
 
   return (
-    <section id="experience" className="py-20 px-4 bg-landscapes">
+    <section id="school" className="py-8 px-4 bg-landscapes">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('experience.title')}</h2>
-          <p className="text-xl">{t('experience.subtitle')}</p>
+        <div className="text-center mb-8 ">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">{t('school.title')}</h2>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-8">
-          {experiences.map((exp, index) => (
+          {schools.map((exp, index) => (
             <Card
               key={index}
               className="p-6 hover-lift animate-slide-up"

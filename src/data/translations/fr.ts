@@ -1,7 +1,7 @@
 export const fr = {
   nav: {
     home: 'Accueil',
-    parcours: 'Parcours',
+      school: 'Parcours',
     experience: 'Expériences',
     projects: 'Projets',
     skills: 'Compétences',
@@ -15,45 +15,83 @@ export const fr = {
     cta: 'Voir mes projets',
     contact: 'Me contacter',
   },
-  experience: {
-    title: 'Expériences Professionnelles',
-    subtitle: 'Mon parcours professionnel',
-    items: [
-      {
-        position: 'Développeur Full Stack Senior',
-        company: 'TechCorp',
-        period: '2021 - Présent',
-        description: 'Développement d\'applications web complexes avec React, Node.js et PostgreSQL. Lead technique sur plusieurs projets clients.',
-        achievements: [
-          'Architecture et développement d\'une plateforme SaaS multi-tenant',
-          'Amélioration des performances de 40%',
-          'Mentorat de 3 développeurs juniors',
+    school: {
+        title: 'Mon Parcours Scolaire',
+        items: [
+            {
+                position: 'Master en Informatique (Ingénierie des Logiciels)',
+                company: 'Faculté des Sciences et Technologies (Université Lorraine)',
+                period: '2025 - aujourd\'hui',
+                description: 'Développement d\'applications web complexes avec React, Node.js et PostgreSQL. Lead technique sur plusieurs projets clients.',
+                achievements: [
+                    'Architecture et développement d\'une plateforme SaaS multi-tenant',
+                    'Amélioration des performances de 40%',
+                    'Mentorat de 3 développeurs juniors',
+                ],
+            },
+            {
+                position: 'Licence en Informatique',
+                company: 'Faculté des Sciences et Technologies (Université Lorraine)',
+                period: '2023 - 2025',
+                description: 'Développement d\'applications web complexes avec React, Node.js et PostgreSQL. Lead technique sur plusieurs projets clients.',
+                achievements: [
+                    'Architecture et développement d\'une plateforme SaaS multi-tenant',
+                    'Amélioration des performances de 40%',
+                    'Mentorat de 3 développeurs juniors',
+                ],
+            },
+            {
+                position: 'Parcours Accès Spécialité Santé',
+                company: 'Campus Brabois (Université Lorraine)',
+                period: '2022 - 2023',
+                description: 'Développement d\'applications web complexes avec React, Node.js et PostgreSQL. Lead technique sur plusieurs projets clients.',
+                achievements: [
+                    'Architecture et développement d\'une plateforme SaaS multi-tenant',
+                    'Amélioration des performances de 40%',
+                    'Mentorat de 3 développeurs juniors',
+                ],
+            },
         ],
-      },
-      {
-        position: 'Développeur Frontend',
-        company: 'StartupXYZ',
-        period: '2019 - 2021',
-        description: 'Création d\'interfaces utilisateur modernes et responsive avec React et TypeScript.',
-        achievements: [
-          'Refonte complète de l\'interface utilisateur',
-          'Mise en place d\'une bibliothèque de composants réutilisables',
-          'Intégration de tests automatisés',
+    },
+    experience: {
+        title: 'Expériences Professionnelles',
+        subtitle: 'Mon parcours professionnel',
+        items: [
+            {
+                position: 'Développeur Full Stack Senior',
+                company: 'TechCorp',
+                period: '2021 - Présent',
+                description: 'Développement d\'applications web complexes avec React, Node.js et PostgreSQL. Lead technique sur plusieurs projets clients.',
+                achievements: [
+                    'Architecture et développement d\'une plateforme SaaS multi-tenant',
+                    'Amélioration des performances de 40%',
+                    'Mentorat de 3 développeurs juniors',
+                ],
+            },
+            {
+                position: 'Développeur Frontend',
+                company: 'StartupXYZ',
+                period: '2019 - 2021',
+                description: 'Création d\'interfaces utilisateur modernes et responsive avec React et TypeScript.',
+                achievements: [
+                    'Refonte complète de l\'interface utilisateur',
+                    'Mise en place d\'une bibliothèque de composants réutilisables',
+                    'Intégration de tests automatisés',
+                ],
+            },
+            {
+                position: 'Développeur Web Junior',
+                company: 'WebAgency',
+                period: '2017 - 2019',
+                description: 'Développement de sites web et applications pour divers clients.',
+                achievements: [
+                    'Développement de plus de 15 projets web',
+                    'Maîtrise des bonnes pratiques de développement',
+                    'Formation continue sur les nouvelles technologies',
+                ],
+            },
         ],
-      },
-      {
-        position: 'Développeur Web Junior',
-        company: 'WebAgency',
-        period: '2017 - 2019',
-        description: 'Développement de sites web et applications pour divers clients.',
-        achievements: [
-          'Développement de plus de 15 projets web',
-          'Maîtrise des bonnes pratiques de développement',
-          'Formation continue sur les nouvelles technologies',
-        ],
-      },
-    ],
-  },
+    },
   projects: {
     title: 'Projets',
     subtitle: 'Quelques réalisations dont je suis fier',

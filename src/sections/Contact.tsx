@@ -1,9 +1,9 @@
 import { useLanguage } from '@/hooks/LanguageContext.tsx';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+import { Card } from '@/components/ui/card.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import { Input } from '@/components/ui/input.tsx';
+import { Textarea } from '@/components/ui/textarea.tsx';
+import { Label } from '@/components/ui/label.tsx';
 import {Mail, MapPin, Phone, Github, Linkedin, Instagram} from 'lucide-react';
 import React, { useState } from 'react';
 import { useToast } from "@/hooks/use-toast.ts";
