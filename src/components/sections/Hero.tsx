@@ -1,9 +1,14 @@
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/hooks/LanguageContext.tsx';
-import { ArrowRight, Mail } from 'lucide-react';
+import {Button} from '@/components/ui/button';
+import {useLanguage} from '@/hooks/LanguageContext.tsx';
+import {ArrowRight, Mail} from 'lucide-react';
+import landscapesLight from '@/assets/landscapes-light.svg';
+import landscapesDark from "@/assets/landscapes-dark.svg";
+import pp from '@/assets/profile_me.jpeg';
+import {useTheme} from '@/hooks/ThemeContext.tsx';
+import {useEffect, useState} from 'react';
 
 export const Hero = () => {
-  const { t } = useLanguage();
+    const {t} = useLanguage();
 
     const calculateAge = (birthDateString: string) => {
         const birthDate = new Date(birthDateString);
@@ -17,58 +22,89 @@ export const Hero = () => {
     };
 
     const age = calculateAge('2004-08-03');
+    const {theme} = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-0">
-      <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-          {/* Greeting */}
-          <h3 className="text-lg text-muted-foreground animate-slide-up">
-            {t('hero.greeting')}
-          </h3>
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-          {/* Name */}
-          <h1 className="text-5xl md:text-7xl font-bold animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="gradient-text">Thomas BARBE</span>
-          </h1>
+    return (
+        <section id="top"
+                 className="min-h-screen flex flex-col items-center justify-center pt-28 px-0 relative overflow-hidden">
+            <div className="container mx-auto px-0 flex-grow flex items-center justify-center">
+                <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+                    {/* Greeting */}
+                    <h3 className="text-lg text-muted-foreground animate-slide-up">
+                        {t('hero.greeting')}
+                    </h3>
 
-          {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            {t('hero.title') + " (" + age + " " + t('hero.age') + ")"}
-          </h2>
+                    {/* Name */}
+                    <h1 className="text-5xl md:text-7xl font-bold animate-slide-up" style={{animationDelay: '0.1s'}}>
+                        <span className="gradient-text">Thomas BARBE</span>
+                    </h1>
 
-          {/* Description */}
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.3s' }}>
-            {t('hero.description')}
-          </p>
+                    {/* Title */}
+                    <h2 className="text-3xl md:text-4xl font-semibold text-foreground animate-slide-up"
+                        style={{animationDelay: '0.2s'}}>
+                        {t('hero.title') + " (" + age + " " + t('hero.age') + ")"}
+                    </h2>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 text-white"
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {t('hero.cta')}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <Mail className="mr-2 h-5 w-5" />
-              {t('hero.contact')}
-            </Button>
-          </div>
+                    {/* Description */}
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up"
+                       style={{animationDelay: '0.3s'}}>
+                        {t('hero.description')}
+                    </p>
 
-          {/* Decorative gradient */}
-          <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up"
+                         style={{animationDelay: '0.4s'}}>
+                        <Button
+                            size="lg"
+                            className="bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 text-white"
+                            onClick={() => document.getElementById('projects')?.scrollIntoView({behavior: 'smooth'})}
+                        >
+                            {t('hero.cta')}
+                            <ArrowRight className="ml-2 h-5 w-5"/>
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}
+                        >
+                            <Mail className="mr-2 h-5 w-5"/>
+                            {t('hero.contact')}
+                        </Button>
+                    </div>
+
+                    {/* Decorative gradient */}
+                    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+                        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"/>
+                        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl"/>
+                    </div>
+                </div>
+            </div>
+
+            {/* Frame SVG at the bottom */}
+            <div className="w-full relative flex justify-center">
+                <img
+                    src={pp}
+                    alt="Thomas BARBE (Me)"
+                    className="absolute top-16 z-10 w-[60%] sm:w-[45%] md:w-[35%] lg:w-[25%] h-auto object-contain rounded-full transform translate-y-1/4"
+                />
+                <div className="w-full relative">
+                    <img
+                        src={landscapesDark}
+                        alt=""
+                        className={`w-full h-auto object-cover transition-opacity duration-500 ${(!mounted || theme === 'dark') ? 'opacity-100' : 'opacity-0'}`}
+                    />
+                    <img
+                        src={landscapesLight}
+                        alt=""
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${(mounted && theme === 'light') ? 'opacity-100' : 'opacity-0'}`}
+                    />
+                </div>
+            </div>
+        </section>
+    );
 };
