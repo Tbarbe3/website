@@ -4,15 +4,11 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: '/',
-  server: {
-    host: "localhost.univ-lorraine.fr", //thomas-barbe.com
-    port: 8080,
-  },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+    base: '/', // reste comme ça, car ton site sera à la racine de cv.thomasbarbe.com
+    plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./src"),
+        },
     },
-  },
 }));

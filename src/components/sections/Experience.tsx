@@ -10,11 +10,11 @@ export const Experience = () => {
     : [];
 
   return (
-    <section id="experience" className="py-20 px-4">
+    <section id="experience" className="py-20 px-4 bg-landscapes">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('experience.title')}</h2>
-          <p className="text-xl text-muted-foreground">{t('experience.subtitle')}</p>
+          <p className="text-xl">{t('experience.subtitle')}</p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-8">
