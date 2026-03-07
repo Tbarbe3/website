@@ -1,6 +1,6 @@
 import { useLanguage } from '@/hooks/LanguageContext.tsx';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card.tsx';
+import { Badge } from '@/components/ui/badge.tsx';
 
 export const Skills = () => {
   const { t } = useLanguage();
