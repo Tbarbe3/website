@@ -9,16 +9,15 @@ All colors are now in HEX.
 @layer base {
     :root {
         --background: #FFFFFF;
-        --foreground: #383838;
+        --foreground: #272727;
 
         --background-header: #FFFFFF;
-        --background-landscapes: #B67240;
 
         --card: #FFFFFF;
-        --card-foreground: #383838;
+        --card-foreground: #272727;
 
         --popover: #FFFFFF;
-        --popover-foreground: #383838;
+        --popover-foreground: #272727;
 
         /* Professional blue navy */
         --primary: #2563EB;
@@ -30,8 +29,13 @@ All colors are now in HEX.
         --accent-foreground: #FFFFFF;
         --accent-dark: #1D4ED8;
 
+        /* Landscape-specific variables (used inside inline SVGs) */
+        --landscape-star: #DCDCDC; /* light stars / dots */
+        --landscape-green: #1EB243; /* green */
+        --landscape-brown: #9A6035; /* warm brown */
+
         --secondary: #F1F5F9;
-        --secondary-foreground: #383838;
+        --secondary-foreground: #272727;
 
         --muted: #F1F5F9;
         --muted-foreground: #64748B;
@@ -40,7 +44,7 @@ All colors are now in HEX.
         --destructive-foreground: #FFFFFF;
 
         --border: #E2E8F0;
-        --input: #E2E8F0;
+        --input: #c2c9d3;
         --ring: #2563EB;
 
         --radius: 0.75rem;
@@ -66,7 +70,6 @@ All colors are now in HEX.
         --foreground: #F8FAFC;
 
         --background-header: #000000;
-        --background-landscapes: #784C2B;
 
         --card: #1E293B;
         --card-foreground: #F8FAFC;
@@ -81,6 +84,11 @@ All colors are now in HEX.
         --accent: #2563EB;
         --accent-foreground: #FFFFFF;
         --accent-dark: #1D4ED8;
+
+        /* Landscape overrides for dark mode */
+        --landscape-star: #FFFC3E;
+        --landscape-green: #168C12;
+        --landscape-brown: #784C2B;
 
         --secondary: #1E293B;
         --secondary-foreground: #F8FAFC;
@@ -131,7 +139,7 @@ All colors are now in HEX.
     }
 
     .bg-landscapes {
-        background: var(--background-landscapes) !important;
+        background: var(--landscape-brown) !important;
     }
 }
 
