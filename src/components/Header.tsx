@@ -22,7 +22,7 @@ export const Header = () => {
 
     const navItems = [
         {key: 'home', href: '#home'},
-        {key: 'parcours', href: '#parcours'},
+        {key: 'school', href: '#school'},
         {key: 'experience', href: '#experience'},
         {key: 'projects', href: '#projects'},
         {key: 'skills', href: '#skills'},
