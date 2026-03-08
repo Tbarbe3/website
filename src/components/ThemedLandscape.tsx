@@ -1,13 +1,12 @@
 import {useTheme} from '@/hooks/ThemeContext.tsx';
 import {motion, useScroll, useTransform} from "framer-motion";
-import {useRef} from "react";
+import React, {useRef} from "react";
 
 interface ThemedLandscapeProps {
     className?: string;
-    alt?: string;
 }
 
-const ThemedLandscape: React.FC<ThemedLandscapeProps> = ({className = '', alt = ''}) => {
+const ThemedLandscape: React.FC<ThemedLandscapeProps> = ({className = ''}) => {
     const {theme} = useTheme();
     const ref = useRef(null);
 
