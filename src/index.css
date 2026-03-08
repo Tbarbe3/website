@@ -30,9 +30,10 @@ All colors are now in HEX.
         --accent-dark: #1D4ED8;
 
         /* Landscape-specific variables (used inside inline SVGs) */
-        --landscape-star: #DCDCDC; /* light stars / dots */
-        --landscape-green: #1EB243; /* green */
-        --landscape-brown: #9A6035; /* warm brown */
+        --landscape-star: #DCDCDC;
+        --landscape-green: #1EB243;
+        --landscape-brown: #9A6035;
+        --landscape-brown-dark: #57361f;
 
         --secondary: #F1F5F9;
         --secondary-foreground: #272727;
@@ -81,7 +82,7 @@ All colors are now in HEX.
         --primary-foreground: #FFFFFF;
         --primary-dark: #1D4ED8;
 
-        --accent: #2563EB;
+        --accent: #96b7ff;
         --accent-foreground: #FFFFFF;
         --accent-dark: #1D4ED8;
 
@@ -89,6 +90,7 @@ All colors are now in HEX.
         --landscape-star: #FFFC3E;
         --landscape-green: #168C12;
         --landscape-brown: #784C2B;
+        --landscape-brown-dark: #4c2f1a;
 
         --secondary: #1E293B;
         --secondary-foreground: #F8FAFC;
@@ -138,8 +140,17 @@ All colors are now in HEX.
         background: var(--background-header);
     }
 
-    .bg-landscapes {
+    .bg-brown {
         background: var(--landscape-brown) !important;
+    }
+    .bg-brown-dark {
+        background: var(--landscape-brown-dark) !important;
+    }
+    .text-brown {
+        color: var(--landscape-brown) !important;
+    }
+    .text-brown-dark {
+        color: var(--landscape-brown-dark) !important;
     }
 }
 
