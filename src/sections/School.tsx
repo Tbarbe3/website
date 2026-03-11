@@ -5,8 +5,8 @@ import {BookOpen, BookOpenCheck, CheckCircle2, Eye, EyeClosed} from 'lucide-reac
 import {Button} from "@/components/ui/button.tsx";
 
 export type SchoolType = {
-    position: string,
-    company: string,
+    formation: string,
+    school: string,
     description?: string,
     current?: boolean,
     period: string,
@@ -20,19 +20,19 @@ const SchoolCard = ({exp, index, style}: { exp: SchoolType, index: number, style
             <div className="flex flex-col md:flex-row md:items-start gap-4">
                 <div className="flex-shrink-0">
                     <div
-                        className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark text-white flex items-center justify-center">
                         {exp.current ?
-                            <BookOpen className="h-6 w-6 text-white"/>
+                            <BookOpen className="h-6 w-6"/>
                             :
-                            <BookOpenCheck className="h-6 w-6 text-white"/>
+                            <BookOpenCheck className="h-6 w-6"/>
                         }
                     </div>
                 </div>
 
                 <div className="flex-1 space-y-3">
                     <div>
-                        <h3 className="text-xl font-bold text-foreground">{exp.position}</h3>
-                        <p className="text-accent font-semibold">{exp.company}</p>
+                        <h3 className="text-xl font-bold text-foreground">{exp.formation}</h3>
+                        <p className="text-accent font-semibold">{exp.school}</p>
                         <p className="text-sm text-muted-foreground">{exp.period}</p>
                     </div>
 
@@ -59,11 +59,11 @@ export const School = () => {
     const [expanded, setExpanded] = useState(false);
     const [showRest, setShowRest] = useState(false);
 
-    const schools = Array.isArray(t('school.items')) ? t('school.items') as SchoolType[] : [];
+    const items = Array.isArray(t('school.items')) ? t('school.items') as SchoolType[] : [];
 
     const VISIBLE_COUNT = 3;
-    const firstItems = schools.slice(0, VISIBLE_COUNT);
-    const restItems = schools.slice(VISIBLE_COUNT);
+    const firstItems = items.slice(0, VISIBLE_COUNT);
+    const restItems = items.slice(VISIBLE_COUNT);
     const remaining = restItems.length;
 
     const ANIM_DURATION = 340; // ms, keep in sync with CSS transitions used below
@@ -122,7 +122,7 @@ export const School = () => {
                             aria-expanded={expanded}
                         >
                             {!expanded ? <Eye className="mr-2 h-5 w-5"/> : <EyeClosed className="mr-2 h-5 w-5"/>}
-                            {!expanded ? `Voir plus (${remaining})` : 'Voir moins'}
+                            {!expanded ? `${t("nav.more")} (${remaining})` : t("nav.less")}
                         </Button>
                     </div>
                 )}
@@ -130,4 +130,3 @@ export const School = () => {
         </section>
     );
 };
-export default School
