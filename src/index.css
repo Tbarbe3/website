@@ -8,10 +8,12 @@ All colors are now in HEX.
 
 @layer base {
     :root {
-        --background: #FFFFFF;
+        --background: #f4f4f4;
         --foreground: #272727;
+        --background-grey: #676767;
 
         --background-header: #FFFFFF;
+        --background-header-inv: #000000;
 
         --card: #FFFFFF;
         --card-foreground: #272727;
@@ -45,7 +47,7 @@ All colors are now in HEX.
         --destructive-foreground: #FFFFFF;
 
         --border: #E2E8F0;
-        --input: #c2c9d3;
+        --input: #e7ecef;
         --ring: #2563EB;
 
         --radius: 0.75rem;
@@ -64,13 +66,19 @@ All colors are now in HEX.
         /* Transitions */
         --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .bg-experience {
+            cursor: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2226%22%20viewBox%3D%220%200%2024%2026%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M2.23975%202.05875C2.07496%201.99673%201.89581%201.98348%201.7237%202.02058C1.55159%202.05768%201.3938%202.14355%201.26918%202.26794C1.14456%202.39233%201.05839%202.54998%201.02096%202.72204C0.983529%202.8941%200.996424%203.07331%201.0581%203.23824L8.62039%2023.4062C8.68926%2023.5891%208.81474%2023.7452%208.97854%2023.8517C9.14234%2023.9583%209.33589%2024.0097%209.53096%2023.9985C9.72604%2023.9873%209.91243%2023.9141%2010.063%2023.7895C10.2135%2023.6649%2010.3203%2023.4954%2010.3678%2023.3059L12.7556%2013.7568L22.3032%2011.3698C22.4933%2011.323%2022.6634%2011.2165%2022.7886%2011.0659C22.9137%2010.9153%2022.9873%2010.7285%2022.9985%2010.533C23.0097%2010.3375%2022.958%2010.1436%2022.8509%209.97966C22.7438%209.81572%2022.587%209.69043%2022.4035%209.62217L2.23975%202.05875Z%22%20fill%3D%22%23010101%22/%3E%3C/svg%3E"), auto;
+        }
     }
 
     .dark {
         --background: #383838;
         --foreground: #F8FAFC;
+        --background-grey: #d6d6d6;
 
         --background-header: #000000;
+        --background-header-inv: #FFFFFF;
 
         --card: #1E293B;
         --card-foreground: #F8FAFC;
@@ -92,7 +100,7 @@ All colors are now in HEX.
         --landscape-brown: #784C2B;
         --landscape-brown-dark: #4c2f1a;
 
-        --secondary: #1E293B;
+        --secondary: #343c49;
         --secondary-foreground: #F8FAFC;
 
         --muted: #334155;
@@ -119,6 +127,10 @@ All colors are now in HEX.
         .logo-img {
             filter: invert(1);
         }
+
+        .bg-experience {
+            cursor: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2226%22%20viewBox%3D%220%200%2024%2026%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M2.23975%202.05875C2.07496%201.99673%201.89581%201.98348%201.7237%202.02058C1.55159%202.05768%201.3938%202.14355%201.26918%202.26794C1.14456%202.39233%201.05839%202.54998%201.02096%202.72204C0.983529%202.8941%200.996424%203.07331%201.0581%203.23824L8.62039%2023.4062C8.68926%2023.5891%208.81474%2023.7452%208.97854%2023.8517C9.14234%2023.9583%209.33589%2024.0097%209.53096%2023.9985C9.72604%2023.9873%209.91243%2023.9141%2010.063%2023.7895C10.2135%2023.6649%2010.3203%2023.4954%2010.3678%2023.3059L12.7556%2013.7568L22.3032%2011.3698C22.4933%2011.323%2022.6634%2011.2165%2022.7886%2011.0659C22.9137%2010.9153%2022.9873%2010.7285%2022.9985%2010.533C23.0097%2010.3375%2022.958%2010.1436%2022.8509%209.97966C22.7438%209.81572%2022.587%209.69043%2022.4035%209.62217L2.23975%202.05875Z%22%20fill%3D%22%23FFFFFF%22/%3E%3C/svg%3E"), auto;
+        }
     }
 }
 
@@ -140,17 +152,62 @@ All colors are now in HEX.
         background: var(--background-header);
     }
 
+    .text-base {
+        color: var(--background-header) !important;
+    }
+
+    .border-base-inv {
+        border: 1px solid var(--background-header-inv);
+    }
+
+    .bg-base-inv {
+        background: var(--background-header-inv);
+    }
+
+    .text-grey {
+        color: var(--background-grey) !important;
+    }
+
+    .py-18 {
+        padding-top: 4.6rem;
+        padding-bottom: 4.6rem;
+    }
+
     .bg-brown {
         background: var(--landscape-brown) !important;
     }
+
     .bg-brown-dark {
         background: var(--landscape-brown-dark) !important;
     }
-    .text-brown {
-        color: var(--landscape-brown) !important;
+
+    .bg-experience {
+        background: var(--background-header);
+        background-image: linear-gradient(color-mix(in srgb, var(--background-grey) 30%, var(--background-header)) .1em, transparent .1em),
+        linear-gradient(90deg, color-mix(in srgb, var(--background-grey) 30%, var(--background-header)) .1em, transparent .1em);
+        background-size: 3em 3em;
+        font-family: monospace;
     }
-    .text-brown-dark {
-        color: var(--landscape-brown-dark) !important;
+
+    .pictureWave {
+        position: absolute;
+        bottom: -2.5px;
+        z-index: 2;
+        height: auto;
+        width: 110%;
+    }
+
+    span.banner {
+        padding: 4px 12px;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            border-width: 0 4px 4px 0;
+            border-style: solid;
+            border-color: transparent var(--primary-dark) transparent transparent;
+        }
     }
 }
 

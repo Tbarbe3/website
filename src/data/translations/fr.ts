@@ -1,4 +1,6 @@
 import {SchoolType} from "@/sections/School.tsx";
+import {ExperienceType} from "@/sections/Experience.tsx";
+import {ProjectType} from "@/sections/Projects.tsx";
 
 export const fr = {
     nav: {
@@ -8,6 +10,8 @@ export const fr = {
         projects: 'Projets',
         skills: 'Compétences',
         contact: 'Contact',
+        more: 'Voir plus',
+        less: 'Voir moins',
     },
 
     hero: {
@@ -23,8 +27,8 @@ export const fr = {
         title: 'Mon Parcours Scolaire',
         items: [
             {
-                position: 'Master en Informatique (Ingénierie des Logiciels)',
-                company: 'Faculté des Sciences et Technologies - Université de Lorraine',
+                formation: 'Master en Informatique (Ingénierie des Logiciels)',
+                school: 'Faculté des Sciences et Technologies - Université de Lorraine',
                 period: 'Nancy (54000 France) / Septembre 2025 - aujourd\'hui',
                 current: true,
                 achievements: [
@@ -34,8 +38,8 @@ export const fr = {
                 ],
             } as SchoolType,
             {
-                position: 'Mobilité d\'échange Erasmus+ (Sciences Informatiques)',
-                company: 'Faculté des Sciences et de l\'Ingénierie - Université de Linköping',
+                formation: 'Mobilité d\'échange Erasmus+ (Sciences Informatiques)',
+                school: 'Faculté des Sciences et de l\'Ingénierie - Université de Linköping',
                 period: 'Linköping (Suède) / Septembre 2025 - Janvier 2026 / Grade 4',
                 achievements: [
                     'Computer Networks, Computer Security',
@@ -44,8 +48,8 @@ export const fr = {
                 ],
             } as SchoolType,
             {
-                position: 'Licence en Informatique',
-                company: 'Faculté des Sciences et Technologies - Université de Lorraine',
+                formation: 'Licence en Informatique',
+                school: 'Faculté des Sciences et Technologies - Université de Lorraine',
                 period: 'Nancy (54000 France) / Septembre 2023 - Juin 2025 / Mention Bien',
                 achievements: [
                     'Bases de données, Interfaces graphiques, Ergonomie, Developpement d\'applications Mobile et Web',
@@ -54,8 +58,8 @@ export const fr = {
                 ],
             } as SchoolType,
             {
-                position: 'Parcours Accès Spécialité Santé (Spécialisation Pharmacie)',
-                company: 'Campus Brabois Santé - Université de Lorraine',
+                formation: 'Parcours Accès Spécialité Santé (Spécialisation Pharmacie)',
+                school: 'Campus Brabois Santé - Université de Lorraine',
                 period: 'Nancy (54000 France) / Septembre 2022 - Juin 2023',
                 achievements: [
                     'Initiation aux médicaments et autres thérapeutiques',
@@ -64,8 +68,8 @@ export const fr = {
                 ],
             } as SchoolType,
             {
-                position: 'Baccalauréat Général',
-                company: 'Lycée Saint-Louis',
+                formation: 'Baccalauréat Général',
+                school: 'Lycée Saint-Louis',
                 period: 'Bar-le-Duc (55000 France) / Septembre 2019 - Juillet 2022 / Mention Bien',
                 achievements: [
                     'Physique-Chimie, Sciences de la Vie et de la Terre, Mathématiques',
@@ -80,44 +84,44 @@ export const fr = {
         title: 'Mes Expériences Professionnelles',
         items: [
             {
-                position: 'Développeur Full Stack',
                 type: 'Stage',
+                position: 'Stage en développement web',
                 company: 'ENSTIB, Ecole Nationale Supérieure des Technologies et Industries du Bois',
                 period: 'Epinal (88000 France) / Avril 2025 - Juillet 2025',
-                description: 'Conception et développement total d\'une application de contrôle des présences des étudiants (full stack), développement d\'une application de forum métier (frontend)',
+                description: 'Conception et développement total d\'une application de contrôle des présences des étudiants, développement du frontend d\'une application de forum métier',
                 achievements: [
-                    'Architecture et développement d\'une plateforme SaaS multi-tenant',
-                    'Amélioration des performances de 40%',
-                    'Mentorat de 3 développeurs juniors',
+                    'Gestion de Projets, Travail d\'équipe',
+                    'Conception, production et deploiement d\'applications',
+                    'Developpement web fullstack (frontend et backend)',
                 ],
-            },
+            } as ExperienceType,
         ],
     },
+
     projects: {
         title: 'Projets',
         subtitle: 'Quelques réalisations dont je suis fier',
         items: [
             {
-                title: 'E-commerce Platform',
-                description: 'Plateforme e-commerce complète avec paiement en ligne, gestion des stocks et tableau de bord administrateur.',
-                technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-                link: 'https://example.com',
-            },
+                title: 'Ponct\'UL',
+                description: 'Application web de pointage des présences des étudiants alternants et de gestion de missions.',
+                technologies: ['React', 'NestJS', 'PostgreSQL'],
+                header: 'Complet - Fullstack',
+                //banner: 'https://media.disneylandparis.com/d4th/fr-fr/images/hd20043-hd19622_2027dec31_world_world-of-frozen-key-visual-digital-elsa_5-2_hp_lead-price-elsa_tcm808-291632.jpg?w=959&f=webp', //956*400
+                link: 'https://ponctul.enstib.univ-lorraine.fr/etu/home',
+            } as ProjectType,
             {
-                title: 'Task Management App',
-                description: 'Application de gestion de tâches collaborative en temps réel avec notifications push.',
-                technologies: ['React', 'Firebase', 'Tailwind CSS'],
-                link: 'https://example.com',
-            },
-            {
-                title: 'Portfolio Generator',
-                description: 'Outil permettant de créer un portfolio professionnel en quelques clics avec des templates personnalisables.',
-                technologies: ['Next.js', 'TypeScript', 'Prisma'],
-                link: 'https://example.com',
-            },
+                title: 'Forum Emplois-Stages',
+                description: 'Application web de présentation et gestion de rendez-vous entre étudiants et entreprises.',
+                technologies: ['Vue.js', 'TypeScript', 'JavaScript'],
+                header: 'Frontend',
+                link: 'https://forum-emploi.enstib.univ-lorraine.fr/',
+            } as ProjectType,
         ],
+        seeMore: 'En savoir plus',
         viewProject: 'Voir le projet',
     },
+
     skills: {
         title: 'Compétences',
         subtitle: 'Technologies et outils que je maîtrise',
@@ -128,15 +132,15 @@ export const fr = {
             other: 'Autres',
         },
         items: {
-            frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js'],
-            backend: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs'],
-            tools: ['Git', 'Docker', 'VS Code', 'Figma', 'Postman'],
-            other: ['Agile/Scrum', 'CI/CD', 'Testing', 'SEO', 'UI/UX'],
+            frontend: ['React', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
+            backend: ['Node.js', 'PostgreSQL', 'MongoDB', 'NestJS'],
+            tools: ['Git', 'Docker', 'VS Code', 'Figma'],
+            other: ['Agile/Scrum', 'CI/CD', 'UI/UX', 'Mutation Testing', 'UX Devil'],
         },
     },
+
     contact: {
         title: 'Contact',
-        subtitle: 'N\'hésitez pas à me contacter',
         info: {
             email: 'Email',
             phone: 'Téléphone',
