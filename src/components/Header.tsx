@@ -44,7 +44,7 @@ export const Header = () => {
                     {/* Logo */}
                     <a href="#top" className="flex justify-center items-center">
                         <div className="w-full relative">
-                            <img src={logoLight} alt={"Logo"} className={`logo-img h-20 my-2`}/>
+                            <img src={logoLight} alt={"Logo"} className={`logo-img h-16 my-3`}/>
                         </div>
                     </a>
 
