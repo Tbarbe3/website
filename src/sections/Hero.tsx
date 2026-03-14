@@ -1,7 +1,6 @@
 import {Button} from '@/components/ui/button.tsx';
 import {useLanguage} from '@/hooks/LanguageContext.tsx';
 import {ArrowRight, Mail} from 'lucide-react';
-import pp from '@/assets/profile_me.jpeg';
 import ThemedLandscape from '@/components/ThemedLandscape.tsx';
 
 export const Hero = () => {
@@ -32,7 +31,7 @@ export const Hero = () => {
 
                     {/* Name */}
                     <h1 className="text-5xl md:text-7xl font-bold animate-slide-up" style={{animationDelay: '0.1s'}}>
-                        <span className="gradient-text">Thomas BARBE</span>
+                        <span className="gradient-text">Thomas BARBÉ</span>
                     </h1>
 
                     {/* Title */}
@@ -80,8 +79,8 @@ export const Hero = () => {
 
                 {/* Profile Picture */}
                 <img
-                    src={pp}
-                    alt="Thomas BARBE (Me)"
+                    src="/profile.png"
+                    alt="Thomas BARBÉ (Me)"
                     className="hidden md:block absolute z-10 w-[45%] sm:w-[45%] md:w-[25%] lg:w-[25%] h-auto object-contain rounded-full"
                 />
 
