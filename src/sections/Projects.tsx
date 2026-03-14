@@ -1,7 +1,7 @@
 import {useLanguage} from '@/hooks/LanguageContext.tsx';
 import {Button} from '@/components/ui/button.tsx';
 import {Badge} from '@/components/ui/badge.tsx';
-import {ExternalLink, ChevronLeft, ChevronRight} from 'lucide-react';
+import {ExternalLink, ChevronLeft, ChevronRight, X} from 'lucide-react';
 import React, {useEffect, useRef, useState, useMemo} from 'react';
 
 export type ProjectType = {
@@ -12,6 +12,7 @@ export type ProjectType = {
     favorite?: boolean,
     header?: string,
     banner?: string,
+    logo?: string,
 }
 
 export const Projects = () => {
@@ -31,6 +32,11 @@ export const Projects = () => {
     const trackRef = useRef<HTMLDivElement | null>(null);
     const cardRef = useRef<HTMLDivElement | null>(null);
     const viewportRef = useRef<HTMLDivElement | null>(null);
+
+    // Modal state
+    const [modalMounted, setModalMounted] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null); // index in `projects` array
 
     // Measure card width from DOM (fallback to default)
     useEffect(() => {
@@ -57,9 +63,10 @@ export const Projects = () => {
     }, [cardWidth]);
 
     // Build extended list with clones based on visibleCount so we never see empty space
-    const clones = visibleCount+1;
+    const clones = projects.length <= 1 ? 0 : Math.max(1, visibleCount + 1);
     const extended = useMemo(() => {
         if (projects.length === 0) return [];
+        if (projects.length === 1) return [...projects];
 
         // helper to repeat projects if there are fewer items than clones
         const repeated = [...projects];
@@ -140,6 +147,42 @@ export const Projects = () => {
         ? ((current - clones) % projects.length + projects.length) % projects.length + 1
         : 0;
 
+    // helper pour convertir un index étendu vers l'index réel dans `projects`
+    const toRealIndex = (extIdx: number) => {
+        if (projects.length === 0) return 0;
+        return ((extIdx - clones) % projects.length + projects.length) % projects.length;
+    };
+
+    // Modal control
+    function openProjectByExtendedIndex(extIdx: number) {
+        if (projects.length === 0) return;
+        const real = toRealIndex(extIdx);
+        setActiveProjectIndex(real);
+        setModalMounted(true);
+        // start visible on next frame to trigger transition (flip+scale)
+        requestAnimationFrame(() => requestAnimationFrame(() => setModalVisible(true)));
+    }
+
+    function closeModal() {
+        setModalVisible(false);
+        // wait for animation to finish before unmount
+        setTimeout(() => {
+            setModalMounted(false);
+            setActiveProjectIndex(null);
+        }, 420);
+    }
+
+    useEffect(() => {
+        function onKey(e: KeyboardEvent) {
+            if (!modalMounted) return;
+            if (e.key === 'Escape') closeModal();
+        }
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [modalMounted]);
+
+    const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
+
     return (
         <section id="projects" className="py-20 px-4 bg-muted/50">
             <div className="container mx-auto px-0">
@@ -183,7 +226,7 @@ export const Projects = () => {
                                             </div>
                                             <div className="flex flex-col flex-1">
                                                 <div
-                                                    className="relative flex justify-center h-35 w-full z-1 overflow-hidden rounded-t-2xl"
+                                                    className="relative block h-32 max-h-32 w-full z-1 overflow-hidden rounded-t-2xl"
                                                     title={project.title}>
                                                     <picture>
                                                         <img
@@ -199,7 +242,7 @@ export const Projects = () => {
                                                                 }.png`
                                                             }
                                                             alt={project.title}
-                                                            className="w-full h-full object-cover"
+                                                            className="block w-full h-full object-cover"
                                                             ref={(el) => {
                                                                 if (!el) return;
                                                                 el.onload = () => {
@@ -214,6 +257,16 @@ export const Projects = () => {
                                                                 };
                                                             }}
                                                         />
+
+                                                        {/* logo overlay si présent */}
+                                                        {project.logo && (
+                                                            <img
+                                                                src={project.logo}
+                                                                alt={`${project.title} logo`}
+                                                                className="absolute top-3 right-3 h-12 w-12 rounded-full bg-white/90 p-1 object-contain shadow-md z-20"
+                                                            />
+                                                        )}
+
                                                         <svg
                                                             role="img"
                                                             aria-label={project.title}
@@ -255,19 +308,17 @@ export const Projects = () => {
                                                 </div>
                                             </div>
                                             <div className="flex flex-col justify-end grow px-4">
+                                                <Button className="mt-6 w-full" variant="outline" onClick={() => openProjectByExtendedIndex(index)}>
+                                                    {t('projects.seeMore')}
+                                                </Button>
                                                 {project.link ?
-                                                    <Button className="mt-6 w-full" variant="outline" asChild>
+                                                    <Button className="mt-4 w-full" variant="outline" asChild>
                                                         <a href={project.link} target="_blank" rel="noopener noreferrer">
                                                             {t('projects.viewProject')}
                                                             <ExternalLink className="ml-2 h-4 w-4"/>
                                                         </a>
                                                     </Button>
                                                     : ""}
-                                                <Button className="mt-6 w-full" variant="outline" asChild>
-                                                    <a target="_blank" rel="noopener noreferrer">
-                                                        {t('projects.seeMore')}
-                                                    </a>
-                                                </Button>
                                             </div>
                                         </div>
                                     </div>
@@ -276,8 +327,8 @@ export const Projects = () => {
                         </div>
 
                         {/* Left / Right masks pour cacher les cartes partielles sous les chevrons */}
-                        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-r from-background from-15% to-transparent" />
-                        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-l from-background from-15% to-transparent" />
+                        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-background from-10% to-transparent" />
+                        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-background from-10% to-transparent" />
 
                         {/* Controls */}
                         {projects.length > 1 && (
@@ -314,6 +365,73 @@ export const Projects = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Modal (flip + scale) */}
+            {modalMounted && (
+                <div
+                    role="dialog"
+                    aria-modal="true"
+                    className="fixed inset-0 z-50 flex items-center justify-center px-4"
+                    onClick={closeModal}
+                    style={{
+                        background: `rgba(0,0,0,${modalVisible ? 0.45 : 0})`,
+                        transition: 'background 320ms ease',
+                    }}>
+                    <div
+                        onClick={(e) => e.stopPropagation()}
+                        className="max-w-4xl w-full mx-auto bg-card rounded-2xl shadow-lg overflow-hidden"
+                        style={{
+                            transformStyle: 'preserve-3d',
+                            transform: modalVisible ? 'rotateY(0deg) scale(1)' : 'rotateY(160deg) scale(0.84)',
+                            transition: 'transform 420ms cubic-bezier(.2,.9,.2,1)',
+                            willChange: 'transform',
+                        }}>
+                        <div className="relative w-full h-64 md:h-96">
+                            <img
+                                src={activeProject?.banner || activeProject?.logo || ''}
+                                alt={activeProject?.title || ''}
+                                className="w-full h-full object-cover"
+                            />
+                            {activeProject?.logo && (
+                                <img
+                                    src={activeProject.logo}
+                                    alt={`${activeProject.title} logo`}
+                                    className="absolute top-6 right-6 h-16 w-16 rounded-full bg-white/90 p-1 object-cover shadow-md z-30"
+                                />
+                            )}
+                            <button
+                                aria-label="close"
+                                onClick={closeModal}
+                                className="absolute top-4 right-4 bg-card/70 hover:bg-card rounded-full p-2 z-40">
+                                <X className="h-5 w-5" />
+                            </button>
+                        </div>
+
+                        <div className="p-6">
+                            <h3 className="text-2xl font-bold mb-3">{activeProject?.title}</h3>
+                            <p className="text-base text-muted-foreground mb-4">{activeProject?.description}</p>
+
+                            <div className="flex flex-wrap gap-2 mb-6">
+                                {activeProject?.technologies.map((tech, i) => (
+                                    <Badge key={i} variant="secondary">{tech}</Badge>
+                                ))}
+                            </div>
+
+                            <div className="flex gap-3">
+                                {activeProject?.link && (
+                                    <Button variant="default" asChild>
+                                        <a href={activeProject.link} target="_blank" rel="noopener noreferrer">
+                                            {t('projects.viewProject')}
+                                            <ExternalLink className="ml-2 h-4 w-4" />
+                                        </a>
+                                    </Button>
+                                )}
+                                <Button variant="ghost" onClick={closeModal}>{t('projects.close') || 'Close'}</Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
