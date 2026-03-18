@@ -81,10 +81,10 @@ export const School = () => {
     };
 
     return (
-        <section id="school" className="py-8 px-4 bg-brown">
+        <section id="school" className="py-8 px-4 bg-polaroid-grey">
             <div className="container mx-auto space-y-8">
                 <div className="text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">{t('school.title')}</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('school.title')}</h2>
                 </div>
 
                 <div className="max-w-4xl mx-auto space-y-8">
@@ -117,7 +117,8 @@ export const School = () => {
                     <div className="text-center">
                         <Button
                             size="lg"
-                            className="bg-brown-dark hover:opacity-90 text-white"
+                            variant="outline"
+                            className="bg-background"
                             onClick={handleToggle}
                             aria-expanded={expanded}
                         >

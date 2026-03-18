@@ -1,7 +1,8 @@
 import {Button} from '@/components/ui/button.tsx';
 import {useLanguage} from '@/hooks/LanguageContext.tsx';
 import {ArrowRight, Mail} from 'lucide-react';
-import ThemedLandscape from '@/components/ThemedLandscape.tsx';
+import {ThemedPolaroids} from "@/components/ThemedPolaroids.tsx";
+import React from "react";
 
 export const Hero = () => {
     const {t} = useLanguage();
@@ -20,9 +21,9 @@ export const Hero = () => {
     const age = calculateAge('2004-08-03');
 
     return (
-        <section id="top"
-                 className="min-h-screen flex flex-col items-center justify-center pt-28 px-0 relative overflow-hidden">
-            <div className="container mx-auto px-0 flex-grow flex items-center justify-center">
+        <section id="home"
+                 className="flex flex-col items-center justify-center pt-28 px-0 relative overflow-hidden">
+            <div className="container mx-auto px-0 flex items-center justify-center">
                 <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
                     {/* Greeting */}
                     <h3 className="text-lg text-muted-foreground animate-slide-up">
@@ -57,8 +58,9 @@ export const Hero = () => {
             {/* Frame SVG at the bottom */}
             <div className="w-full relative flex justify-center items-center">
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up absolute top-10 z-10 w-[60%] sm:w-[45%] md:w-[35%] lg:w-[25%] h-auto"
-                     style={{animationDelay: '0.4s'}}>
+                <div
+                    className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up absolute top-10 z-10 w-[60%] sm:w-[45%] md:w-[35%] lg:w-[25%] h-auto"
+                    style={{animationDelay: '0.4s'}}>
                     <Button
                         size="lg"
                         className="bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 text-white"
@@ -78,13 +80,17 @@ export const Hero = () => {
                 </div>
 
                 {/* Profile Picture */}
-                <img
-                    src="/profile.png"
-                    alt="Thomas BARBÉ (Me)"
-                    className="hidden md:block absolute z-10 w-[45%] sm:w-[45%] md:w-[25%] lg:w-[25%] h-auto object-contain rounded-full"
-                />
+                <div className="item hidden md:block absolute z-10 w-[45%] sm:w-[45%] md:w-[25%] lg:w-[25%] h-auto object-contain">
+                    <div className="polaroid">
+                        <img
+                            src="/profile.jpeg"
+                            alt="Thomas BARBÉ (Me)"
+                        />
+                        <div className="caption">Bienvenue!</div>
+                    </div>
+                </div>
 
-                <ThemedLandscape />
+                <ThemedPolaroids/>
             </div>
         </section>
     );
