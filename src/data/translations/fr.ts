@@ -104,53 +104,52 @@ export const fr = {
         items: [
             {
                 title: 'Ponct\'UL',
-                description: 'Application web de pointage des présences des étudiants alternants et de gestion de missions.',
+                subtitle: 'Application web de pointage des présences des étudiants alternants et de gestion de missions.',
                 technologies: ['React', 'NestJS', 'PostgreSQL'],
                 header: 'Complet - Fullstack',
                 link: 'https://ponctul.enstib.univ-lorraine.fr/etu/home',
-                logo: 'https://factuel.univ-lorraine.fr/wp-content/uploads/2025/06/forum_3.jpg'
             } as ProjectType,
             {
                 title: 'Forum Emplois-Stages',
-                description: 'Application web de présentation et gestion de rendez-vous entre étudiants et entreprises.',
+                subtitle: 'Application web de présentation et gestion de rendez-vous entre étudiants et entreprises.',
                 technologies: ['Vue.js', 'TypeScript', 'JavaScript'],
                 link: 'https://forum-emploi.enstib.univ-lorraine.fr/',
-                logo: 'https://forum-emploi.enstib.univ-lorraine.fr/assets/Lorraine%20INP%20ENSTIB%20(couleur_%20CMJN)-DxJ-XbNo.png',
-                banner: 'https://factuel.univ-lorraine.fr/wp-content/uploads/2025/06/forum_3.jpg'
             } as ProjectType,
             {
                 title: 'DMK Wiki',
-                description: 'Site web à propos jeu Disney Magic Kingdoms de Gameloft, regroupant plusieurs fonctionnalités diverses.',
+                subtitle: 'Site web à propos jeu Disney Magic Kingdoms de Gameloft, regroupant plusieurs fonctionnalités diverses.',
                 header: 'Benevolat',
                 technologies: ['MediaWiki', 'Lua', 'JavaScript'],
-                banner: 'https://static.wikia.nocookie.net/disneymagicalkingdoms/images/b/b5/Site-background-light/revision/latest?cb=20210606101333',
-                logo: 'https://static.wikia.nocookie.net/disneymagicalkingdoms/images/3/39/Site-community-image/revision/latest?cb=20221022145900',
-                link: 'http://dmk.fandom.com/wiki/',
+                link: 'https://dmk.fandom.com/wiki/',
             } as ProjectType,
             {
-                title: 'Prékar',
-                description: 'Application web permettant de réserver des voitures entre propriétaires et particuliers.',
-                technologies: ['Symphony', 'PHP', 'Twig'],
-            } as ProjectType,
-            {
-                title: 'My Dressing',
-                description: 'Conception d\'une application mobile permettant de proposer des tenues en fonction de son dressing, de ses habitudes et de la météo.',
-                technologies: ['UX Devil'],
+                title: 'Shake-It Up',
+                subtitle: 'Application web de présentation de recettes de cocktail, accompagné de fonctionnalités de recherches.',
+                technologies: ['PHP', 'JavaScript'],
+                link: 'http://shakeitup.thomasbarbe.com/',
             } as ProjectType,
             {
                 title: 'Home Viewer',
-                description: 'Application mobile permettant de cartographier l\'interrieur d\'un batiment.',
+                subtitle: 'Application mobile permettant de cartographier l\'interrieur d\'un batiment.',
                 header: 'Application Android',
                 technologies: ['Java', 'Gradle', 'Twig'],
             } as ProjectType,
-            // {
-            //     title: 'Shake It Up',
-            //     description: 'Application web de présentation de cocktails.',
-            //     technologies: ['PHP'],
-            // } as ProjectType,
+            {
+                title: 'Dressing+',
+                subtitle: 'Concept d\'application mobile proposant des tenues en fonction de ses habitudes et de la météo.',
+                technologies: ['Figma', 'UX Devil'],
+                link: 'https://www.figma.com/proto/y79gR1FpCdy7C0NbHl6sDB/Conception?node-id=101-716&p=f&t=DJj4PwjygIhfNVLn-0&scaling=scale-down&content-scaling=fixed&page-id=101%3A713&starting-point-node-id=101%3A716',
+            } as ProjectType,
+            {
+                title: 'Prékar',
+                subtitle: 'Application web permettant de réserver des voitures entre propriétaires et particuliers.',
+                technologies: ['Symphony', 'PHP', 'Twig'],
+                link: 'http://prekar.thomasbarbe.com/home',
+            } as ProjectType,
         ],
         seeMore: 'En savoir plus',
         viewProject: 'Voir le projet',
+        technologies: 'Compétences utilisées',
     },
 
     skills: {
