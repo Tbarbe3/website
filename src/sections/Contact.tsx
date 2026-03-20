@@ -67,7 +67,7 @@ export const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-14 px-0 bg-muted/50 ">
+        <section id="contact" className="py-14 px-0 bg-background">
             <div className="container mx-auto">
                 <div className="text-center mb-14">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('contact.title')}</h2>
@@ -129,18 +129,18 @@ export const Contact = () => {
                         <Card className="p-6 bg-base animate-slide-in-left" style={{animationDelay: '0.3s'}}>
                             <h3 className="font-semibold text-lg mb-4">{t('contact.info.socials')}</h3>
                             <div className="flex gap-4">
-                                <Button size="icon" variant="outline" asChild>
+                                <Button size="icon" variant="outline" className="transition-all duration-300" asChild>
                                     <a href="https://github.com/Tbarbe3" target="_blank" rel="noopener noreferrer">
                                         <BsGithub className="h-5 w-5"/>
                                     </a>
                                 </Button>
-                                <Button size="icon" variant="outline" asChild>
+                                <Button size="icon" variant="outline" className="transition-all duration-300" asChild>
                                     <a href="https://gitlab.univ-lorraine.fr/barbe57u" target="_blank"
                                        rel="noopener noreferrer">
                                         <BsGitlab className="h-5 w-5"/>
                                     </a>
                                 </Button>
-                                <Button size="icon" variant="outline" asChild>
+                                <Button size="icon" variant="outline" className="transition-all duration-300" asChild>
                                     <a href="https://www.linkedin.com/in/thomas-barb%C3%A9-862b89304/" target="_blank"
                                        rel="noopener noreferrer">
                                         <BsLinkedin className="h-5 w-5"/>
@@ -207,7 +207,7 @@ export const Contact = () => {
 
                             <Button
                                 type="submit"
-                                className="w-full bg-gradient-to-r from-primary to-primary-dark hover:opacity-90"
+                                className="w-full bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 transition-all duration-300"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (t('contact.form.sending') || 'Envoi en cours...') : t('contact.form.send')}

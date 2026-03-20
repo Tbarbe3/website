@@ -272,11 +272,10 @@ export const Projects = () => {
     const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
 
     return (
-        <section id="projects" className="py-20 px-4 bg-muted/50">
-            <div className="container mx-auto px-0">
+        <section id="projects" className="px-0 bg-muted/50 relative overflow-hidden">
+            <div className="container mx-auto px-4 pt-10 pb-2">
                 <div className="text-center mb-6">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('projects.title')}</h2>
-                    <p className="text-xl text-muted-foreground">{t('projects.subtitle')}</p>
                 </div>
 
                 <div className="max-w-6xl mx-auto">
@@ -287,7 +286,7 @@ export const Projects = () => {
                         onMouseLeave={() => setIsPaused(false)}>
 
                         {/* viewport sans padding pour que l'overflow clip correctement les cartes */}
-                        <div className="overflow-hidden px-8 py-4" ref={viewportRef}>
+                        <div className="overflow-hidden p-6" ref={viewportRef}>
                             <div
                                 ref={trackRef}
                                 onTransitionEnd={handleTransitionEnd}
@@ -312,7 +311,7 @@ export const Projects = () => {
                                         <div className={`card ${flippedExtIndex === index ? 'is-flipped' : ''}`}>
                                             {/* Front face: existing card visual (compact) */}
                                             <div
-                                                className="card__face card__face--front flex flex-col flex-grow relative bg-card rounded-2xl w-72 min-h-80 m-auto pb-6 hover-lift animate-slide-up"
+                                                className="card__face card__face--front flex flex-col flex-grow relative bg-card rounded-2xl w-72 min-h-80 m-auto pb-6 hover-lift animate-slide-up shadow-[0_8px_20px_rgba(0,0,0,0.12)]"
                                                 style={{animationDelay: `${index * 0.05}s`}}>
                                                 <div
                                                     className="flex justify-between z-10 absolute -top-2 -left-1 w-full">
@@ -360,7 +359,8 @@ export const Projects = () => {
                                                                 onClick={(e) => e.stopPropagation()}>{t('projects.viewProject')}<ExternalLink
                                                                 className="ml-2 h-4 w-4"/></a></Button>
                                                             : ""}
-                                                        <Button className="mt-6 w-full" variant="outline"
+                                                        <Button className="mt-4 w-full"
+                                                                variant="outline"
                                                                 onClick={(e) => {
                                                                     e.stopPropagation(); /* toggle flip */
                                                                     setFlippedExtIndex(prev => (prev === index ? null : index));
@@ -451,6 +451,20 @@ export const Projects = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className="w-full relative flex justify-end items-baseline">
+                <svg className="pictureWave w-full relative" width="1440" height="92"
+                     viewBox="0 0 1440 92" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 0C252.637 65.5178 414.692 79.0342 720 84.64H0V0Z"
+                        fill="var(--polaroid-grey)"/>
+                    <path
+                        d="M1440 0C1187.36 65.5178 1025.31 79.0342 720 84.64H1440V0Z"
+                        fill="var(--polaroid-grey)"/>
+                    <rect y="83.64" width="1440" height="7.36" fill="var(--polaroid-grey)"/>
+                </svg>
             </div>
 
             {/* Modal (flip on the card) */}

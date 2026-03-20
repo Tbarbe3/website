@@ -16,7 +16,7 @@ export type SchoolType = {
 
 const SchoolCard = ({exp, index, style}: { exp: SchoolType, index: number, style?: CSSProperties }) => {
     return (
-        <Card key={index} className="p-6 bg-background hover-lift"
+        <Card key={index} className="bg-background hover-lift"
               style={{animationDelay: `${index * 0.06}s`, ...style}}>
             <div className="flex flex-col md:flex-row md:items-start gap-4">
                 <div className="flex-shrink-0">
@@ -119,7 +119,7 @@ export const School = () => {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="bg-background"
+                            className="bg-background shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all duration-300"
                             onClick={handleToggle}
                             aria-expanded={expanded}
                         >
@@ -136,11 +136,11 @@ export const School = () => {
                      xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M0 0C252.637 65.5178 414.692 79.0342 720 84.64H0V0Z"
-                        fill="var(--background-header)"/>
+                        fill="var(--background)"/>
                     <path
                         d="M1440 0C1187.36 65.5178 1025.31 79.0342 720 84.64H1440V0Z"
-                        fill="var(--background-header)"/>
-                    <rect y="83.64" width="1440" height="7.36" fill="var(--background-header)"/>
+                        fill="var(--background)"/>
+                    <rect y="83.64" width="1440" height="7.36" fill="var(--background)"/>
                 </svg>
             </div>
         </section>

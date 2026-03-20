@@ -8,7 +8,7 @@ All colors are now in HEX.
 
 @layer base {
     :root {
-        --background: #f4f4f4;
+        --background: #F7F7F7;
         --foreground: #272727;
         --background-grey: #676767;
 
@@ -50,7 +50,7 @@ All colors are now in HEX.
         --destructive-foreground: #FFFFFF;
 
         --border: #E2E8F0;
-        --input: #e7ecef;
+        --input: #f1f1f1;
         --ring: #2563EB;
 
         --radius: 0.75rem;
@@ -70,9 +70,7 @@ All colors are now in HEX.
         --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-        .bg-experience {
-            cursor: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2226%22%20viewBox%3D%220%200%2024%2026%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M2.23975%202.05875C2.07496%201.99673%201.89581%201.98348%201.7237%202.02058C1.55159%202.05768%201.3938%202.14355%201.26918%202.26794C1.14456%202.39233%201.05839%202.54998%201.02096%202.72204C0.983529%202.8941%200.996424%203.07331%201.0581%203.23824L8.62039%2023.4062C8.68926%2023.5891%208.81474%2023.7452%208.97854%2023.8517C9.14234%2023.9583%209.33589%2024.0097%209.53096%2023.9985C9.72604%2023.9873%209.91243%2023.9141%2010.063%2023.7895C10.2135%2023.6649%2010.3203%2023.4954%2010.3678%2023.3059L12.7556%2013.7568L22.3032%2011.3698C22.4933%2011.323%2022.6634%2011.2165%2022.7886%2011.0659C22.9137%2010.9153%2022.9873%2010.7285%2022.9985%2010.533C23.0097%2010.3375%2022.958%2010.1436%2022.8509%209.97966C22.7438%209.81572%2022.587%209.69043%2022.4035%209.62217L2.23975%202.05875Z%22%20fill%3D%22%23010101%22/%3E%3C/svg%3E"), auto;
-        }
+        --cursor-text: url("/public/cursors/cursor-text.svg") 10 12, text;
     }
 
     .dark {
@@ -80,7 +78,7 @@ All colors are now in HEX.
         --foreground: #F8FAFC;
         --background-grey: #d6d6d6;
 
-        --background-header: #000000;
+        --background-header: #535353;
         --background-header-inv: #FFFFFF;
 
         --polaroid: #282828;
@@ -110,13 +108,13 @@ All colors are now in HEX.
         --secondary-foreground: #F8FAFC;
 
         --muted: #334155;
-        --muted-foreground: #94A3B8;
+        --muted-foreground: #b5bcc3;
 
         --destructive: #7F1D1D;
         --destructive-foreground: #F8FAFC;
 
         --border: #334155;
-        --input: #334155;
+        --input: #43474e;
         --ring: #2563EB;
 
         /* Gradients - adjusted for dark mode */
@@ -134,16 +132,23 @@ All colors are now in HEX.
             filter: invert(1);
         }
 
-        .bg-experience {
-            cursor: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2226%22%20viewBox%3D%220%200%2024%2026%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M2.23975%202.05875C2.07496%201.99673%201.89581%201.98348%201.7237%202.02058C1.55159%202.05768%201.3938%202.14355%201.26918%202.26794C1.14456%202.39233%201.05839%202.54998%201.02096%202.72204C0.983529%202.8941%200.996424%203.07331%201.0581%203.23824L8.62039%2023.4062C8.68926%2023.5891%208.81474%2023.7452%208.97854%2023.8517C9.14234%2023.9583%209.33589%2024.0097%209.53096%2023.9985C9.72604%2023.9873%209.91243%2023.9141%2010.063%2023.7895C10.2135%2023.6649%2010.3203%2023.4954%2010.3678%2023.3059L12.7556%2013.7568L22.3032%2011.3698C22.4933%2011.323%2022.6634%2011.2165%2022.7886%2011.0659C22.9137%2010.9153%2022.9873%2010.7285%2022.9985%2010.533C23.0097%2010.3375%2022.958%2010.1436%2022.8509%209.97966C22.7438%209.81572%2022.587%209.69043%2022.4035%209.62217L2.23975%202.05875Z%22%20fill%3D%22%23FFFFFF%22/%3E%3C/svg%3E"), auto;
-        }
+        --cursor-text: url("/public/cursors/cursor-text-dark.svg") 10 12, text;
     }
 }
 
 @layer base {
     * {
         @apply border-border;
+        cursor: url("/public/cursors/cursor-base.svg") 3 2, auto;
         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    input, textarea, [contenteditable="true"] {
+        cursor: var(--cursor-text);
+    }
+
+    a, button, [role="button"], summary, label[for] {
+        cursor: url("/public/cursors/cursor-click.svg") 3 2, pointer !important;
     }
 
     body {
@@ -174,19 +179,6 @@ All colors are now in HEX.
         color: var(--background-grey) !important;
     }
 
-    .py-18 {
-        padding-top: 4.6rem;
-        padding-bottom: 4.6rem;
-    }
-
-    .bg-experience {
-        background: var(--background-header);
-        background-image: linear-gradient(color-mix(in srgb, var(--background-grey) 30%, var(--background-header)) .1em, transparent .1em),
-        linear-gradient(90deg, color-mix(in srgb, var(--background-grey) 30%, var(--background-header)) .1em, transparent .1em);
-        background-size: 3em 3em;
-        font-family: monospace;
-    }
-
     .item {
         width: 30%;
         display: inline-block;
@@ -202,11 +194,6 @@ All colors are now in HEX.
     .polaroid > img, .polaroid > image {
         max-width: 100%;
         height: auto;
-    }
-    .caption {
-        font-size: 1.8rem;
-        text-align: center;
-        line-height: 2em;
     }
     .item .polaroid:before {
         content: '';
@@ -294,7 +281,6 @@ All colors are now in HEX.
     .hover-lift {
         transition: var(--transition-base);
     }
-
     .hover-lift:hover {
         transform: translateY(-4px);
         box-shadow: var(--shadow-lg);

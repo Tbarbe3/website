@@ -99,8 +99,7 @@ export const fr = {
     },
 
     projects: {
-        title: 'Projets',
-        subtitle: 'Quelques réalisations dont je suis fier',
+        title: 'Mes Projets',
         items: [
             {
                 title: 'Ponct\'UL',
@@ -153,8 +152,7 @@ export const fr = {
     },
 
     skills: {
-        title: 'Compétences',
-        subtitle: 'Technologies et outils que je maîtrise',
+        title: 'Technologies et Compétences Maîtrisées',
         categories: {
             frontend: 'Frontend',
             backend: 'Backend',
@@ -162,15 +160,15 @@ export const fr = {
             other: 'Autres',
         },
         items: {
-            frontend: ['React', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
-            backend: ['Node.js', 'PostgreSQL', 'MongoDB', 'NestJS'],
+            frontend: ['React', 'TypeScript', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
+            backend: ['Node.js', 'NestJS', 'PostgreSQL', 'MongoDB', 'Lua'],
             tools: ['Git', 'Docker', 'VS Code', 'Figma'],
-            other: ['Agile/Scrum', 'CI/CD', 'UI/UX', 'Mutation Testing', 'UX Devil'],
+            other: ['CI/CD', 'UI/UX', 'Mutation Testing', 'GUI'],
         },
     },
 
     contact: {
-        title: 'Contact',
+        title: 'Contacts',
         info: {
             email: 'Email',
             phone: 'Téléphone',

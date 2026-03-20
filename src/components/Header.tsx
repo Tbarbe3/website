@@ -42,7 +42,7 @@ export const Header = () => {
             <nav className="container mx-auto px-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <a href="#top" className="flex justify-center items-center">
+                    <a href="#home" className="flex justify-center items-center">
                         <div className="w-full relative">
                             <img src={logoLight} alt={"Logo"} className={`logo-img h-16 my-3`}/>
                         </div>

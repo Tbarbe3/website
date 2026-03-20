@@ -63,7 +63,7 @@ export const Hero = () => {
                     style={{animationDelay: '0.4s'}}>
                     <Button
                         size="lg"
-                        className="bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 text-white"
+                        className="bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 text-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all duration-300"
                         onClick={() => document.getElementById('projects')?.scrollIntoView({behavior: 'smooth'})}
                     >
                         {t('hero.cta')}
@@ -71,6 +71,7 @@ export const Hero = () => {
                     </Button>
                     <Button
                         size="lg"
+                        className="bg-base shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all duration-300"
                         variant="outline"
                         onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}
                     >
