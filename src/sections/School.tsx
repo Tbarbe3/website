@@ -1,8 +1,9 @@
 import React, {CSSProperties, useState} from 'react';
 import {useLanguage} from '@/hooks/LanguageContext.tsx';
 import {Card} from '@/components/ui/card.tsx';
-import {BookOpen, BookOpenCheck, CheckCircle2, Eye, EyeClosed} from 'lucide-react';
+import {ArrowRight, BookOpen, BookOpenCheck, CheckCircle2, Eye, EyeClosed, Mail} from 'lucide-react';
 import {Button} from "@/components/ui/button.tsx";
+import {ThemedPolaroids} from "@/components/ThemedPolaroids.tsx";
 
 export type SchoolType = {
     formation: string,
@@ -81,8 +82,8 @@ export const School = () => {
     };
 
     return (
-        <section id="school" className="py-8 px-4 bg-polaroid-grey">
-            <div className="container mx-auto space-y-8">
+        <section id="school" className="px-0 bg-polaroid-grey relative overflow-hidden">
+            <div className="container mx-auto space-y-8 pt-8">
                 <div className="text-center">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('school.title')}</h2>
                 </div>
@@ -127,6 +128,20 @@ export const School = () => {
                         </Button>
                     </div>
                 )}
+            </div>
+
+            <div className="w-full relative flex justify-end items-baseline">
+                <svg className="pictureWave w-full relative" width="1440" height="92"
+                     viewBox="0 0 1440 92" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 0C252.637 65.5178 414.692 79.0342 720 84.64H0V0Z"
+                        fill="var(--background-header)"/>
+                    <path
+                        d="M1440 0C1187.36 65.5178 1025.31 79.0342 720 84.64H1440V0Z"
+                        fill="var(--background-header)"/>
+                    <rect y="83.64" width="1440" height="7.36" fill="var(--background-header)"/>
+                </svg>
             </div>
         </section>
     );
