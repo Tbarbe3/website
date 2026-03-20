@@ -67,7 +67,7 @@ export const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-20 px-0 bg-muted/50 ">
+        <section id="contact" className="py-14 px-0 bg-muted/50 ">
             <div className="container mx-auto">
                 <div className="text-center mb-14">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('contact.title')}</h2>
@@ -75,8 +75,8 @@ export const Contact = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
                     {/* Contact Info */}
-                    <div className="space-y-6">
-                        <Card className="p-6 hover-lift animate-slide-in-left">
+                    <div className="flex flex-col justify-between gap-6">
+                        <Card className="p-6 bg-base hover-lift animate-slide-in-left">
                             <div className="flex items-start gap-4">
                                 <div
                                     className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center flex-shrink-0">
@@ -94,7 +94,7 @@ export const Contact = () => {
                             </div>
                         </Card>
 
-                        <Card className="p-6 hover-lift animate-slide-in-left" style={{animationDelay: '0.1s'}}>
+                        <Card className="p-6 bg-base hover-lift animate-slide-in-left" style={{animationDelay: '0.1s'}}>
                             <div className="flex items-start gap-4">
                                 <div
                                     className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center flex-shrink-0">
@@ -112,7 +112,7 @@ export const Contact = () => {
                             </div>
                         </Card>
 
-                        <Card className="p-6 hover-lift animate-slide-in-left" style={{animationDelay: '0.2s'}}>
+                        <Card className="p-6 bg-base hover-lift animate-slide-in-left" style={{animationDelay: '0.2s'}}>
                             <div className="flex items-start gap-4">
                                 <div
                                     className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center flex-shrink-0">
@@ -120,13 +120,13 @@ export const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg mb-1">{t('contact.info.location')}</h3>
-                                    <p className="text-muted-foreground">Nancy, Meurthe-et-Moselle, France</p>
+                                    <p className="text-muted-foreground">Nancy, Meurthe-et-Moselle (54000), France</p>
                                 </div>
                             </div>
                         </Card>
 
                         {/* Social Media */}
-                        <Card className="p-6 animate-slide-in-left" style={{animationDelay: '0.3s'}}>
+                        <Card className="p-6 bg-base animate-slide-in-left" style={{animationDelay: '0.3s'}}>
                             <h3 className="font-semibold text-lg mb-4">{t('contact.info.socials')}</h3>
                             <div className="flex gap-4">
                                 <Button size="icon" variant="outline" asChild>
@@ -146,17 +146,12 @@ export const Contact = () => {
                                         <BsLinkedin className="h-5 w-5"/>
                                     </a>
                                 </Button>
-                                {/*<Button size="icon" variant="outline" asChild>*/}
-                                {/*  <a href="https://www.instagram.com/thomas.brb.3/" target="_blank" rel="noopener noreferrer">*/}
-                                {/*    <Instagram className="h-5 w-5" />*/}
-                                {/*  </a>*/}
-                                {/*</Button>*/}
                             </div>
                         </Card>
                     </div>
 
                     {/* Contact Form */}
-                    <Card className="p-6 animate-slide-in-right">
+                    <Card className="p-6 bg-base animate-slide-in-right">
                         <h2 className="font-bold text-xl mb-3">{t('hero.contact')}</h2>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
