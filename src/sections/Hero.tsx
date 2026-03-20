@@ -23,7 +23,7 @@ export const Hero = () => {
     return (
         <section id="home"
                  className="flex flex-col items-center justify-center pt-28 px-0 relative overflow-hidden">
-            <div className="container mx-auto px-0 flex items-center justify-center">
+            <div className="container mx-auto flex items-center justify-center py-2 px-6">
                 <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
                     {/* Greeting */}
                     <h3 className="text-lg text-muted-foreground animate-slide-up">
@@ -86,7 +86,7 @@ export const Hero = () => {
                             src="/profile.jpeg"
                             alt="Thomas BARBÉ (Me)"
                         />
-                        <div className="caption">Bienvenue!</div>
+                        <div className="text-center text-xl mt-10"></div>
                     </div>
                 </div>
 

@@ -5,12 +5,12 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="py-8 px-4 border-t border-border bg-base">
+        <footer className="py-8 px-4 border-t border-border bg-base text-foreground">
             <div className="container mx-auto text-center">
-                <p className="text-muted-foreground flex items-center justify-center gap-2">
+                <p className="flex items-center justify-center gap-2">
                     {t('footer.policy')}.
                 </p>
-                <p className="text-muted-foreground flex items-center justify-center gap-2">
+                <p className="flex items-center justify-center gap-2">
                     © {currentYear} Thomas BARBE. {t('footer.rights')}.
                 </p>
             </div>
