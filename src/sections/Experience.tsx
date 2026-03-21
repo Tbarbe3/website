@@ -83,7 +83,7 @@ export const Experience = () => {
 
     return (
         <section id="experience" className="px-0 bg-background relative overflow-hidden">
-            <div className="container mx-auto space-y-8 py-14">
+            <div className="container mx-auto space-y-8 py-14 px-8">
                 <div className="text-center">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('experience.title')}</h2>
                 </div>

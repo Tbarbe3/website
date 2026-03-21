@@ -10,7 +10,7 @@ export const Skills = () => {
 
     return (
         <section id="skills" className="px-0 relative overflow-hidden bg-polaroid-grey">
-            <div className="container mx-auto px-4 pt-14 pb-5">
+            <div className="container mx-auto pt-14 pb-5 px-8">
                 <div className="text-center mb-10">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('skills.title')}</h2>
                 </div>

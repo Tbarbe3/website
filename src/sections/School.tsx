@@ -83,7 +83,7 @@ export const School = () => {
 
     return (
         <section id="school" className="px-0 bg-polaroid-grey relative overflow-hidden">
-            <div className="container mx-auto space-y-8 pt-8">
+            <div className="container mx-auto space-y-8 pt-8 px-8">
                 <div className="text-center">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('school.title')}</h2>
                 </div>

@@ -186,6 +186,29 @@ export const Projects = () => {
         return ((extIdx - clones) % projects.length + projects.length) % projects.length;
     };
 
+    function openModal(extIndex: number, originEl?: HTMLElement | null) {
+        if (projects.length === 0) return;
+
+        const realIndex = toRealIndex(extIndex);
+        const sourceEl = originEl ?? null;
+
+        setActiveProjectIndex(realIndex);
+        setFlippedExtIndex(null);
+        setIsPaused(true);
+
+        if (sourceEl) {
+            setModalOriginRect(sourceEl.getBoundingClientRect());
+            setModalOriginPrevVisibility(sourceEl.style.visibility || '');
+            setModalOriginEl(sourceEl);
+        } else {
+            setModalOriginRect(null);
+            setModalOriginPrevVisibility(null);
+            setModalOriginEl(null);
+        }
+
+        setModalMounted(true);
+    }
+
     // Hide the original card when the overlay is visible and restore it when overlay closes
     useEffect(() => {
         if (!modalOriginEl) return;
@@ -362,9 +385,9 @@ export const Projects = () => {
                                                         <Button className="mt-4 w-full"
                                                                 variant="outline"
                                                                 onClick={(e) => {
-                                                                    e.stopPropagation(); /* toggle flip */
-                                                                    setFlippedExtIndex(prev => (prev === index ? null : index));
-                                                                    setIsPaused(true);
+                                                                    e.stopPropagation();
+                                                                    const cardEl = (e.currentTarget as HTMLElement).closest('[data-project-card]') as HTMLElement | null;
+                                                                    openModal(index, cardEl);
                                                                 }}>{t('projects.seeMore')}</Button>
                                                     </div>
                                                 </div>
