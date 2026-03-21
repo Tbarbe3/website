@@ -125,7 +125,7 @@ export const fr = {
                 title: 'Shake-It Up',
                 subtitle: 'Application web de présentation de recettes de cocktail, accompagné de fonctionnalités de recherches.',
                 technologies: ['PHP', 'JavaScript'],
-                link: 'http://shakeitup.thomasbarbe.com/',
+                link: 'https://shakeitup.thomasbarbe.com/',
             } as ProjectType,
             {
                 title: 'Home Viewer',
@@ -143,7 +143,7 @@ export const fr = {
                 title: 'Prékar',
                 subtitle: 'Application web permettant de réserver des voitures entre propriétaires et particuliers.',
                 technologies: ['Symphony', 'PHP', 'Twig'],
-                link: 'http://prekar.thomasbarbe.com/home',
+                link: 'https://prekar.thomasbarbe.com/home',
             } as ProjectType,
         ],
         seeMore: 'En savoir plus',
@@ -161,7 +161,7 @@ export const fr = {
         },
         items: {
             frontend: ['React', 'TypeScript', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
-            backend: ['Node.js', 'NestJS', 'PostgreSQL', 'MongoDB', 'Lua'],
+            backend: ['Node.js', 'NestJS', 'PostgresSQL', 'MongoDB', 'Lua'],
             tools: ['Git', 'Docker', 'VS Code', 'Figma'],
             other: ['CI/CD', 'UI/UX', 'Mutation Testing', 'GUI'],
         },

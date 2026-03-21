@@ -241,10 +241,6 @@ All colors are now in HEX.
     .card__face--front span.card__banner::after {
         left: 0;
     }
-    .card__face--back span.card__banner::after {
-        right: 0;
-        transform: rotate(270deg);
-    }
 }
 
 @layer utilities {
@@ -286,78 +282,6 @@ All colors are now in HEX.
         box-shadow: var(--shadow-lg);
     }
 
-    /* Flip card styles (simple, usable alongside Tailwind variables) */
-    .scene {
-        width: 18rem; /* matches w-72 used on cards */
-        height: 27rem; /* approximate height matching min-h-80 */
-        perspective: 800px;
-        display: inline-block;
-        flex: 0 0 18rem;
-    }
-
-    /* Responsive: on small screens use a wide percentage so a single card fills the viewport nicely */
-    @media (max-width: 640px) {
-        .scene {
-            width: 90%;
-            flex: 0 0 90%;
-        }
-    }
-
-    /* Medium screens keep the default fixed size (approx 288px) */
-    @media (min-width: 641px) and (max-width: 1024px) {
-        .scene {
-            width: 16rem;
-            flex: 0 0 16rem;
-        }
-    }
-
-    /* Large screens: a slightly wider card */
-    @media (min-width: 1025px) {
-        .scene {
-            width: 18rem;
-            flex: 0 0 18rem;
-        }
-    }
-
-    .card {
-        width: 100%;
-        height: 100%;
-        transition: transform 0.7s cubic-bezier(.2, .9, .2, 1);
-        transform-style: preserve-3d;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .card.is-flipped, .rotate-y-180 {
-        transform: rotateY(180deg);
-    }
-
-    .card__face {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        box-sizing: border-box;
-    }
-
-    .card__face img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* Small helper so badges inside back fit */
-    .card-back-badges {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-top: 8px;
-    }
 }
 
 @keyframes fade-in {
